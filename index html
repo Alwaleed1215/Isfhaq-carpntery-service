@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="إشفاق لأرقى أعمال النجارة والديكورات الخشبية بالرياض. نقدم لك دمجاً مثالياً بين الفخامة والمتانة من خلال تفصيل غرف النوم والخزائن المبتكرة.">
+    <meta name="keywords" content="فني نجارة, نجار الرياض, إشفاق لخدمات النجارة, ديكورات خشبية, صيانة نجارة">
+    
+    <meta property="og:title" content="إشفاق | لخدمات النجارة بالرياض">
+    <meta property="og:description" content="إشفاق لخدمات النجارة والديكورات الخشبية بالرياض. دقة التنفيذ وأجود أنواع الأخشاب.">
+    <meta property="og:image" content="https://i.ibb.co/B2yrKrK2/20260408-214316.png">
+    <meta property="og:type" content="website">
+
+    <title>إشفاق | لخدمات النجارة بالرياض</title>
+    
+    <link rel="icon" href="https://i.ibb.co/B2yrKrK2/20260408-214316.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/B2yrKrK2/20260408-214316.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ================= المتغيرات والألوان ================= */
+        :root {
+            --bg-color: #1a1a1d; 
+            --surface-color: #252529; 
+            --gold-primary: #c5a059; 
+            --gold-light: #eaddb6; 
+            --text-light: #f5f5f5; 
+            --text-muted: #a8a8b0; 
+            
+            --header-bg: rgba(26, 26, 29, 0.95);
+            --border-color: rgba(197, 160, 89, 0.2);
+            --section-alt-bg: #1c1c1f;
+            --loader-bg: #1a1a1d;
+        }
+
+        /* الوضع الفاتح (الافتراضي) */
+        body.light-mode {
+            --bg-color: #f4f4f6; 
+            --surface-color: #ffffff; 
+            --gold-primary: #b38b47; 
+            --gold-light: #1a1a1d; 
+            --text-light: #2c2c2e; 
+            --text-muted: #6b6b70; 
+            
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --border-color: rgba(179, 139, 71, 0.3);
+            --section-alt-bg: #ececece;
+            --loader-bg: #f4f4f6;
+        }
+
+        /* الإعدادات العامة والخطوط */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-bottom: 50px;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* نظام اللغات */
+        html[lang="ar"] .en, html[lang="ar"] .ur { display: none; }
+        html[lang="en"] .ar, html[lang="en"] .ur { display: none; }
+        html[lang="ur"] .ar, html[lang="ur"] .en { display: none; }
+        
+        html[lang="en"] { direction: ltr; }
+        html[lang="ar"], html[lang="ur"] { direction: rtl; }
+
+        /* شاشة التحميل (Loader) */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--loader-bg); z-index: 99999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        #loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-image-frame {
+            width: 160px; height: 160px; border-radius: 50%;
+            background: radial-gradient(circle, var(--surface-color) 0%, var(--bg-color) 100%);
+            border: 4px solid transparent; border-top-color: var(--gold-primary);
+            border-bottom-color: var(--gold-primary);
+            display: flex; justify-content: center; align-items: center;
+            margin-bottom: 25px; animation: spinGlow 2s linear infinite;
+        }
+        .loader-image-frame img { 
+            width: 100px; height: auto; object-fit: contain; border-radius: 50%;
+            animation: counterSpinPulse 2s linear infinite;
+        }
+        @keyframes spinGlow { 100% { transform: rotate(360deg); } }
+        @keyframes counterSpinPulse { 100% { transform: rotate(-360deg) scale(0.95); } }
+
+        /* الرأس (Header) */
+        header {
+            background-color: var(--header-bg); padding: 15px 5%;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px);
+        }
+        .header-buttons { display: flex; gap: 10px; }
+        .site-title { color: var(--gold-primary); font-size: 1.2rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .site-title img { width: 30px; height: 30px; border-radius: 50%; }
+        
+        .btn {
+            background: transparent; border: 1px solid var(--gold-primary); color: var(--gold-primary);
+            padding: 5px 10px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn:hover { background: var(--gold-primary); color: var(--surface-color); }
+
+        /* الأقسام العامة */
+        section { padding: 120px 5% 60px; }
+        .section-alt { background-color: var(--section-alt-bg); }
+        .section-title { text-align: center; color: var(--gold-primary); font-size: 2.2rem; margin-bottom: 40px; }
+
+        /* الرئيسية */
+        .hero { text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { color: var(--gold-primary); font-size: 2.5rem; margin-bottom: 20px; }
+        .hero p { max-width: 800px; font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
+
+        /* الخدمات والمزايا */
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .service-card, .feature-card {
+            background-color: var(--surface-color); border: 1px solid var(--border-color);
+            border-radius: 15px; padding: 30px 20px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.4s ease;
+        }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--gold-primary); }
+        .icon-wrapper { font-size: 3rem; color: var(--gold-primary); margin-bottom: 15px; }
+
+        /* الاتصال والخريطة */
+        .contact-info { text-align: center; font-size: 1.2rem; margin-bottom: 30px; }
+        .contact-info a { color: var(--gold-primary); text-decoration: none; font-weight: bold; }
+        .map-container { border-radius: 15px; overflow: hidden; border: 1px solid var(--gold-primary); height: 400px; width: 100%; max-width: 1000px; margin: 0 auto; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* الأزرار العائمة */
+        .floating-buttons { position: fixed; bottom: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+        html[lang="ar"] .floating-buttons, html[lang="ur"] .floating-buttons { left: 20px; }
+        html[lang="en"] .floating-buttons { right: 20px; }
+        .float-btn {
+            width: 55px; height: 55px; border-radius: 50%; display: flex; justify-content: center; align-items: center;
+            color: white; font-size: 28px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); text-decoration: none; transition: transform 0.3s;
+        }
+        .float-btn:hover { transform: scale(1.1); color: white; }
+        .whatsapp-btn { background-color: #25D366; }
+        .phone-btn { background-color: var(--gold-primary); }
+
+    </style>
+</head>
+<body class="light-mode">
+
+    <div id="loader">
+        <div class="loader-image-frame">
+            <img src="https://i.ibb.co/B2yrKrK2/20260408-214316.png" alt="Logo">
+        </div>
+        <div class="loading-text">
+            <span class="ar">جاري التحميل...</span>
+            <span class="en">Loading...</span>
+            <span class="ur">لوڈ ہو رہا ہے...</span>
+        </div>
+    </div>
+
+    <header>
+        <div class="site-title">
+            <img src="https://i.ibb.co/B2yrKrK2/20260408-214316.png" alt="Logo">
+            <span class="ar">إشفاق للنجارة</span>
+            <span class="en">Ishfaq Carpentry</span>
+            <span class="ur">اشفاق کارپینٹری</span>
+        </div>
+        <div class="header-buttons">
+            <button class="btn" id="lang-btn">
+                <i class="fa-solid fa-globe"></i> 
+                <span class="ar">EN</span><span class="en">UR</span><span class="ur">AR</span>
+            </button>
+            <button class="btn" id="theme-btn"><i class="fa-solid fa-moon"></i></button>
+        </div>
+    </header>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/966533848997" target="_blank" class="float-btn whatsapp-btn">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+        <a href="tel:+966533848997" class="float-btn phone-btn">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <section class="hero">
+        <h1>
+            <span class="ar">إشفاق لخدمات النجارة والديكورات الخشبية</span>
+            <span class="en">Ishfaq Carpentry & Wooden Decorations</span>
+            <span class="ur">اشفاق کارپینٹری اور لکڑی کی سجاوٹ</span>
+        </h1>
+        <p>
+            <span class="ar">نقدم لك دمجاً مثالياً بين الفخامة والمتانة، نعتمد على دقة التنفيذ وأجود أنواع الأخشاب لابتكار تشطيبات خشبية ترتقي بمساحتك وتعيش لأجيال في مدينة الرياض.</span>
+            <span class="en">We offer you a perfect combination of luxury and durability, relying on precise execution and the finest woods to create finishes that elevate your space in Riyadh.</span>
+            <span class="ur">ہم آپ کو عیش و آرام اور پائیداری کا بہترین امتزاج پیش کرتے ہیں، ریاض میں آپ کی جگہ کو بہتر بنانے کے لیے بہترین لکڑی کا استعمال کرتے ہیں۔</span>
+        </p>
+        <a href="tel:+966533848997" class="btn" style="padding: 10px 25px; font-size: 1.2rem;">
+            <i class="fa-solid fa-phone"></i> 
+            <span class="ar">اتصل بنا الآن</span><span class="en">Call Us Now</span><span class="ur">ابھی کال کریں</span>
+        </a>
+    </section>
+
+    <section class="section-alt">
+        <h2 class="section-title">
+            <span class="ar">خدماتنا</span><span class="en">Our Services</span><span class="ur">ہماری خدمات</span>
+        </h2>
+        <div class="grid-container">
+            <div class="service-card">
+                <div class="icon-wrapper"><i class="fa-solid fa-bed"></i></div>
+                <h3>
+                    <span class="ar">تفصيل غرف النوم</span><span class="en">Bedroom Customization</span><span class="ur">بیڈروم کی تخصیص</span>
+                </h3>
+                <p>
+                    <span class="ar">تصميم وتنفيذ غرف نوم عصرية وكلاسيكية تناسب ذوقك واحتياجك.</span>
+                    <span class="en">Design and execution of modern and classic bedrooms.</span>
+                    <span class="ur">جدید اور کلاسک بیڈ رومز کا ڈیزائن اور تیاری۔</span>
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="icon-wrapper"><i class="fa-solid fa-door-open"></i></div>
+                <h3>
+                    <span class="ar">الأبواب الخشبية</span><span class="en">Wooden Doors</span><span class="ur">لکڑی کے دروازے</span>
+                </h3>
+                <p>
+                    <span class="ar">تصنيع وتركيب أبواب داخلية وخارجية متينة وذات تصاميم فاخرة.</span>
+                    <span class="en">Manufacturing and installation of durable interior and exterior doors.</span>
+                    <span class="ur">پائیدار اندرونی اور بیرونی دروازوں کی تیاری اور تنصیب۔</span>
+                </p>
+            </div>
+            <div class="service-card">
+                <div class="icon-wrapper"><i class="fa-solid fa-hammer"></i></div>
+                <h3>
+                    <span class="ar">صيانة وتجديد</span><span class="en">Maintenance & Renewal</span><span class="ur">دیکھ بھال اور مرمت</span>
+                </h3>
+                <p>
+                    <span class="ar">إصلاح وتجديد الأثاث الخشبي وإعادته كالجديد باحترافية.</span>
+                    <span class="en">Repairing and renewing wooden furniture professionally.</span>
+                    <span class="ur">لکڑی کے فرنیچر کی پیشہ ورانہ مرمت اور تجدید۔</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">
+            <span class="ar">تواصل معنا</span><span class="en">Contact Us</span><span class="ur">ہم سے رابطہ کریں</span>
+        </h2>
+        <div class="contact-info">
+            <p><i class="fa-solid fa-phone"></i> <strong><span class="ar">الهاتف:</span><span class="en">Phone:</span><span class="ur">فون:</span></strong> <a href="tel:+966533848997" dir="ltr">0533848997</a></p>
+            <p><i class="fa-solid fa-envelope"></i> <strong><span class="ar">البريد:</span><span class="en">Email:</span><span class="ur">ای میل:</span></strong> <a href="mailto:appleicloudy1882@gmail.com">appleicloudy1882@gmail.com</a></p>
+            <p><i class="fa-solid fa-location-dot"></i> <strong><span class="ar">نطاق الخدمة:</span><span class="en">Service Area:</span><span class="ur">سروس کا علاقہ:</span></strong> <span class="ar">الرياض، المملكة العربية السعودية</span><span class="en">Riyadh, Saudi Arabia</span><span class="ur">ریاض، سعودی عرب</span></p>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463877.3124119856!2d46.93188897003444!3d24.7254553648079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1713500000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <script>
+        // إزالة شاشة التحميل بعد انتهاء التحميل
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // التحكم في الوضع الليلي/النهاري
+        const themeBtn = document.getElementById('theme-btn');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            themeBtn.innerHTML = isLight ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+        });
+
+        // نظام اللغات والاكتشاف التلقائي للغة الجهاز
+        const langs = ['ar', 'en', 'ur'];
+        let currentLangIndex = 0;
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === 'ar' || lang === 'ur') ? 'rtl' : 'ltr';
+            currentLangIndex = langs.indexOf(lang);
+        }
+
+        // اكتشاف لغة الجهاز التلقائية
+        document.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('ur')) {
+                setLanguage('ur');
+            } else if (userLang.startsWith('en')) {
+                setLanguage('en');
+            } else {
+                setLanguage('ar'); // العربية كافتراضي إذا لم تكن الإنجليزية أو الأردية
+            }
+        });
+
+        // زر التبديل اليدوي بين اللغات
+        document.getElementById('lang-btn').addEventListener('click', () => {
+            currentLangIndex = (currentLangIndex + 1) % langs.length;
+            setLanguage(langs[currentLangIndex]);
+        });
+    </script>
+
+</body>
+</html>
